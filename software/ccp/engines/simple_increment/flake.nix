@@ -1,15 +1,39 @@
 {
-  description = "A very basic flake";
+  description = "A simple_increment Rust project with WASM support";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs }: {
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in
+      {
+        devShell = pkgs.mkShell {
+          buildInputs = [
+            pkgs.rustc
+            pkgs.cargo
+            pkgs.wasm-pack
+            pkgs.clang
+            pkgs.pkg-config
+            pkgs.openssl
+            pkgs.rustfmt
+            pkgs.rustup
+            pkgs.wit-bindgen # Correct package name
+            pkgs.wasmtime
+            pkgs.binaryen
+          ];
 
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+          shellHook = ''
+            rustup default stable
+            rustup target add wasm32-unknown-unknown
+          '';
 
-    packages.x86_64-linux.default = self.packages.x86_64-linux.hello;
-
-  };
+          RUSTFLAGS = "--cfg=web_sys_unstable_apis";
+        };
+      });
 }
+
