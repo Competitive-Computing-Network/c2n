@@ -1,39 +1,30 @@
 {
-  description = "A simple_increment Rust project with WASM support";
+  description = "A Rust project that compiles to WebAssembly (WASM) with WASI support using fenix";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs";
+    fenix.url = "github:nix-community/fenix";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        devShell = pkgs.mkShell {
-          buildInputs = [
-            pkgs.rustc
-            pkgs.cargo
-            pkgs.wasm-pack
-            pkgs.clang
-            pkgs.pkg-config
-            pkgs.openssl
-            pkgs.rustfmt
-            pkgs.rustup
-            pkgs.wit-bindgen # Correct package name
-            pkgs.wasmtime
-            pkgs.binaryen
-          ];
+  outputs = { self, nixpkgs, fenix }:
+    let
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      rust = fenix.packages.x86_64-linux.stable.toolchain;
+    in
+    {
+      devShell = pkgs.mkShell {
+        buildInputs = [
+          rust
+          pkgs.wasmtime
+          pkgs.wasilibc
+          pkgs.git        # Additional package
+          pkgs.htop       # Additional package
+        ];
 
-          shellHook = ''
-            rustup default stable
-            rustup target add wasm32-unknown-unknown
-          '';
-
-          RUSTFLAGS = "--cfg=web_sys_unstable_apis";
-        };
-      });
+        shellHook = ''
+          echo "Development environment for Rust WASM project with WASI support using fenix"
+          export RUSTFLAGS='-C target-feature=+atomics,+bulk-memory,+mutable-globals'
+        '';
+      };
+    };
 }
-
