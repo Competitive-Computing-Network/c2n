@@ -1,7 +1,9 @@
 [package]
 name = "simple_increment"
 version = "0.1.0"
-edition = "2018"
+authors = ["Steven Kane <skaneengineer@gmail.com>"]
+edition = "2021"
 
 [dependencies]
-# Add your dependencies here
+# Add any other dependencies your project requires here
+

@@ -8,32 +8,23 @@
 
   outputs = { self, nixpkgs, fenix }:
     let
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      pkgs = import nixpkgs { system = "x86_64-linux"; };
       rust = fenix.packages.x86_64-linux.stable.toolchain;
     in
     {
       devShells = {
-        default = pkgs.mkShell {
+        x86_64-linux = pkgs.mkShell {
           buildInputs = [
             rust
             pkgs.wasmtime
-            pkgs.wasilibc
-            pkgs.git        # Additional package
-            pkgs.htop       # Additional package
+            pkgs.git
+            pkgs.htop
           ];
 
           shellHook = ''
             echo "Development environment for Rust WASM project with WASI support using fenix"
             export RUSTFLAGS='-C target-feature=+atomics,+bulk-memory,+mutable-globals'
           '';
-        };
-      };
-
-      packages = {
-        default = pkgs.stdenv.mkDerivation {
-          name = "your-package-name";
-          src = ./.;
-          # Add your build instructions here
         };
       };
     };
