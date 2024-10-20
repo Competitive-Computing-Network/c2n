@@ -1,32 +1,33 @@
 {
-  description = "A Rust project that compiles to WebAssembly (WASM) with WASI support using fenix";
+  description = "Development environment with Rustup installed via Nix";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
-    fenix.url = "github:nix-community/fenix";
   };
 
-  outputs = { self, nixpkgs, fenix }:
+  outputs = { self, nixpkgs }:
     let
-      pkgs = import nixpkgs { system = "x86_64-linux"; };
-      rust = fenix.packages.x86_64-linux.stable.toolchain;
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";  # Adjust this for your system
+      };
     in
     {
       devShells = {
         x86_64-linux = pkgs.mkShell {
           buildInputs = [
-            rust
-            pkgs.wasmtime
-            pkgs.git
-            pkgs.htop
+            pkgs.rustup       # Rustup for managing Rust toolchains
+            pkgs.cmake        # Example: CMake for building C/C++ projects
+            pkgs.wasm-pack    # Example: wasm-pack for building Rust WASM projects
+            pkgs.wasmtime     # Example: Wasmtime for running WASM modules
+            pkgs.wabt         # This adds wasm2wat and other WABT tools
           ];
 
           shellHook = ''
-            echo "Development environment for Rust WASM project with WASI support using fenix"
-            export RUSTFLAGS='-C target-feature=+atomics,+bulk-memory,+mutable-globals'
+            echo "Entering development environment with Rustup installed via Nix"
+            rustup default stable  # Set default toolchain
+            rustup target add wasm32-wasi  # Add WASM target
           '';
         };
       };
     };
 }
-
