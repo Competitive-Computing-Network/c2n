@@ -1,0 +1,7 @@
+# Default target for the workspace (used by engine_host, agent_host, and broker)
+[build]
+target = "x86_64-unknown-linux-gnu"
+
+# You can optionally add specific configurations for the WASM target
+[target.wasm32-wasi]
+# Add any WASM-specific settings here

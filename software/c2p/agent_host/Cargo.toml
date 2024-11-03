@@ -1,0 +1,12 @@
+[package]
+name = "c2p_agent_host"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wasmtime.workspace = true
+anyhow.workspace = true
+tokio.workspace = true
+tungstenite.workspace = true
+serde.workspace = true
+serde_json.workspace = true

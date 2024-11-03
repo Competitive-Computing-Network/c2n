@@ -1,0 +1,17 @@
+[workspace]
+resolver = "2"
+members = [
+    "engine_host",
+    "agent_host",
+    "broker",
+    "agents/simple_increment",
+]
+
+# Common dependencies for all members
+[workspace.dependencies]
+anyhow = "1.0"
+wasmtime = "0.30"
+tokio = { version = "1.0", features = ["full"] }
+tungstenite = "0.20"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"

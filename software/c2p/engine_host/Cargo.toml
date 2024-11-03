@@ -1,0 +1,10 @@
+[package]
+name = "c2p_engine_host"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wasmtime.workspace = true
+anyhow.workspace = true
+tokio.workspace = true
+# ... other dependencies
