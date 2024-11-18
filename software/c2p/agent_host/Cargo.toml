@@ -1,12 +1,11 @@
 [package]
-name = "c2p_agent_host"
+name = "agent_host"  # Matches directory agent_host
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-wasmtime.workspace = true
-anyhow.workspace = true
-tokio.workspace = true
-tungstenite.workspace = true
-serde.workspace = true
-serde_json.workspace = true
+wasmtime = "14.0.0"
+wasmtime-wasi = "14.0.0"
+sha2 = "0.10"
+serde = { version = "1.0", features = ["derive"] }
+rmp-serde = "1.1.1"

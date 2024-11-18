@@ -1,5 +1,5 @@
 [package]
-name = "c2p_agent_simple_increment"
+name = "simple_increment"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,4 +7,6 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-anyhow.workspace = true
+serde = { version = "1.0", features = ["derive"] }
+rmp-serde = "1.1.1"
+sha2 = "0.10"

@@ -1,10 +1,11 @@
 [package]
-name = "engine_host"
+name = "simple_increment_host"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+agent_host = { path = "../../agent_host" }
 wasmtime = "14.0.0"
-sha2 = "0.10"
+wasmtime-wasi = "14.0.0"
 serde = { version = "1.0", features = ["derive"] }
 rmp-serde = "1.1.1"
