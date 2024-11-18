@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 agent_host = { path = "../../agent_host" }
-wasmtime = "14.0.0"
-wasmtime-wasi = "14.0.0"
+wasmtime = "15.0.1"
+wasmtime-wasi = "15.0.1"
 serde = { version = "1.0", features = ["derive"] }
 rmp-serde = "1.1.1"
