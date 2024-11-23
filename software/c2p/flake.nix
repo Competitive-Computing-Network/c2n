@@ -25,7 +25,7 @@
           shellHook = ''
             echo "Entering development environment with Rustup installed via Nix"
             rustup default stable  # Set default toolchain
-            rustup target add wasm32-wasi  # Add WASM target
+            rustup target add wasm32-wasip1  # Add WASM target
           '';
         };
       };

@@ -23,7 +23,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     // Get path to WASM file using CARGO_MANIFEST_DIR
     let manifest_dir = env!("CARGO_MANIFEST_DIR");
     let wasm_path = PathBuf::from(manifest_dir)
-        .join("../../target/wasm32-wasi/release/simple_increment.wasm");
+        .join("../../target/wasm32-wasip1/release/simple_increment.wasm");
 
     // Debug output to verify path
     println!("Loading WASM from: {}", wasm_path.display());
