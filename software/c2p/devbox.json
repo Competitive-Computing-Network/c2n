@@ -1,0 +1,16 @@
+{
+  "packages": [
+    "rustup",
+    "cmake",
+    "wasm-pack",
+    "wasmtime",
+    "wabt"
+  ],
+  "shell": {
+    "init_hook": [
+      "echo \"Entering development environment with Rustup installed via Devbox\"",
+      "rustup default stable",
+      "rustup target add wasm32-wasip1"
+    ]
+  }
+}
