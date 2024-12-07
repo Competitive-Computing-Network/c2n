@@ -1,6 +1,6 @@
 # Pick the Bit and Competitive Computing Platform - Towards a New Benchmark for AGI System Performance
 
-2024-12-07
+2024-12-07 Version 0.1.0
 
 Steven W. Kane
 
