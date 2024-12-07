@@ -107,7 +107,7 @@ Pick the Bit is designed to test core AGI capabilities:
 
    - The WASM WASI sandbox ensures that agent performance is tied solely to its algorithmic sophistication, not hardware advantages.
 
-#### 4 C2P as a Universal Standard
+#### 3.2 C2P as a Universal Standard
 
 1. **Decoupling from Hardware:**
 
@@ -121,7 +121,7 @@ Pick the Bit is designed to test core AGI capabilities:
 
    - C2P logs all game state updates and agent moves, providing a fully auditable record of each competition.
 
-#### 4.1 Meta-Learning and AGI Evaluation
+#### 3.3 Meta-Learning and AGI Evaluation
 
 1. **Dynamic Agent Generation:**
    - PtB encourages the use of meta-learning systems that dynamically generate agents tailored to the game environment.
@@ -129,7 +129,7 @@ Pick the Bit is designed to test core AGI capabilities:
 
 ---
 
-### 5. Conclusion
+### 4. Conclusion
 
 Pick the Bit (PtB) and the Competitive Computing Platform (C2P) together represent a new frontier in AGI benchmarking. PtB's dynamic and evolving meta-game challenges agents to excel in adaptability, pattern recognition, and strategic thinking, while C2P provides a standardized, resource-constrained environment for fair competition. By isolating agent performance from hardware advantages and enabling reproducible evaluations, PtB and C2P offer a universal platform for AGI research and benchmarking, pushing the boundaries of what intelligent systems can achieve. Through these competitions, the AI community can foster innovation, collaboration, and progress toward truly general intelligence.
 
