@@ -2,13 +2,13 @@
 
 ---
 
-### 2. The Pick the Bit Game
+### 1. The Pick the Bit Game
 
-#### 2.1 Game Overview
+#### 1.1 Game Overview
 
 Pick the Bit (PtB) is a turn-based, multi-agent (minimum of 2 agents but theoretically an unlimited number of agents) game where agents compete by guessing a binary value—either 0 or 1—each round. The goal is to avoid picking the bit chosen by the majority of agents. Agents that pick the majority bit lose health (when their health goes to 0 or below, the agent 'dies' and is removed from the game), and the game continues until only one agent remains.
 
-#### 2.2 Game Mechanics
+#### 1.2 Game Mechanics
 
 1. **Health Dynamics:**
 
@@ -46,13 +46,13 @@ Pick the Bit (PtB) is a turn-based, multi-agent (minimum of 2 agents but theoret
 
 ---
 
-### 3. Running PtB on C2P
+### 2. Running PtB on C2P
 
-#### 3.1 The Competitive Computing Platform (C2P)
+#### 2.1 The Competitive Computing Platform (C2P)
 
 The Competitive Computing Platform (C2P) is an isolated, resource-constrained environment for executing AI-generated agents. It enforces standardization across competitions, ensuring fairness and reproducibility.
 
-#### 3.2 Agent Constraints
+#### 2.2 Agent Constraints
 
 1. **WASM WASI Modules:**
 
@@ -68,7 +68,7 @@ The Competitive Computing Platform (C2P) is an isolated, resource-constrained en
 
    - Agents receive game state updates via shared memory and submit their moves back through the same mechanism. No external communication is permitted, ensuring that all strategies are self-contained.
 
-#### 3.3 C2P Architecture
+#### 2.3 C2P Architecture
 
 1. **Broker and Hosts:**
 
@@ -82,16 +82,16 @@ The Competitive Computing Platform (C2P) is an isolated, resource-constrained en
 
    - Each turn, agents receive the game state and submit their moves asynchronously. The broker processes all moves, calculates health adjustments, and updates the game state for the next round.
 
-#### 3.4 Benchmarking Independence
+#### 2.4 Benchmarking Independence
 
    - PtB on C2P can benchmark any AGI system, independent of its architecture. The only requirement is that the AGI system generates a WASM WASI agent for the PtB game.
    - This architectural independence ensures that C2P provides a level playing field for all AGI systems, allowing researchers and developers to focus on algorithmic sophistication rather than hardware or language-specific implementations.
 
 ---
 
-### 4. PtB and C2P as a Benchmark for AGI Performance
+### 3. PtB and C2P as a Benchmark for AGI Performance
 
-#### 4.1 Benchmarking AGI Through PtB
+#### 3.1 Benchmarking AGI Through PtB
 
 Pick the Bit is designed to test core AGI capabilities:
 
@@ -107,7 +107,7 @@ Pick the Bit is designed to test core AGI capabilities:
 
    - The WASM WASI sandbox ensures that agent performance is tied solely to its algorithmic sophistication, not hardware advantages.
 
-#### 4.2 C2P as a Universal Standard
+#### 4 C2P as a Universal Standard
 
 1. **Decoupling from Hardware:**
 
@@ -121,7 +121,7 @@ Pick the Bit is designed to test core AGI capabilities:
 
    - C2P logs all game state updates and agent moves, providing a fully auditable record of each competition.
 
-#### 4.3 Meta-Learning and AGI Evaluation
+#### 4.1 Meta-Learning and AGI Evaluation
 
 1. **Dynamic Agent Generation:**
    - PtB encourages the use of meta-learning systems that dynamically generate agents tailored to the game environment.
@@ -132,5 +132,4 @@ Pick the Bit is designed to test core AGI capabilities:
 ### 5. Conclusion
 
 Pick the Bit (PtB) and the Competitive Computing Platform (C2P) together represent a new frontier in AGI benchmarking. PtB's dynamic and evolving meta-game challenges agents to excel in adaptability, pattern recognition, and strategic thinking, while C2P provides a standardized, resource-constrained environment for fair competition. By isolating agent performance from hardware advantages and enabling reproducible evaluations, PtB and C2P offer a universal platform for AGI research and benchmarking, pushing the boundaries of what intelligent systems can achieve. Through these competitions, the AI community can foster innovation, collaboration, and progress toward truly general intelligence.
-
 
