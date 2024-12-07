@@ -1,5 +1,9 @@
 # Pick the Bit and Competitive Computing Platform - Towards a New Benchmark for AGI System Performance
 
+2024-12-07
+
+Steven W. Kane
+
 ---
 
 ### 1. The Pick the Bit Game
